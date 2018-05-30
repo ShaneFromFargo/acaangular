@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Vendor/Xeditable/xeditable.min.css" rel="stylesheet" />
+<div ng-app="People">
+    <div ng-controller="PeopleCRUD">
+        <button class="btn btn-success" ng-click="create()">Be god and make a new person</button>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                   Last Name
+                </th>
+                <th>
+                   Email
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th></th>
+            </tr>
+                <tr ng-repeat="person in people">
+                    <td>{{person.Id}}</td>
+                    <td>
+                        <a href="#" editable-text="person.FirstName" onaftersave="updatePerson(person)">{{ person.FirstName || "empty" }}</a>
+                    </td>
+                    <td>
+                        <a href="#" editable-text="person.LastName" onaftersave="updatePerson(person)">{{ person.LastName || "empty" }}</a>
+                    </td>
+                    <td>
+                        <a href="#" editable-text="person.Email" onaftersave="updatePerson(person)">{{ person.Email || "empty" }}</a>
+                    </td>
+                    <td>
+                        <a href="#" editable-text="person.Phone" onaftersave="updatePerson(person)">{{ person.Phone || "empty" }}</a>
+                    </td>
+                    <td>
+                        <button ng-click="deletePerson(person)" class="btn btn-danger">
+                            KILLL HIM
+                            </button>
+            </td>
+                </tr>
+        </table>
+
+
+    </div>
+</div>
+@section Scripts
+{
+    <script data-require="angular.js@1.6.6" data-semver="1.6.6" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="~/Scripts/Angular/PeopleCrudController.js"></script>
+<script src="~/Vendor/Xeditable/xeditable.min.js"></script>
+}
+
+

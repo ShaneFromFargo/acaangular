@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Angular";
+}
+
+<div ng-app="githubViewer">
+    <div ng-controller="MainController">
+        <h1>List of People</h1>
+        <input ng-model="searchParameter" type="text" />
+        <button ng-click="search()">Search</button>
+        <div ng-repeat="person in users">
+        <p>Name: {{person.FirstName}} {{person.LastName}}</p>
+            </div>
+     
+    </div>
+</div>
+@section Scripts
+{
+    <script data-require="angular.js@1.6.6" data-semver="1.6.6" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="~/Scripts/Angular/mycontroller.js"></script>
+    }
+

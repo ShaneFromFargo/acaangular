@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CalendarAppointment.Models;
+using CalendarAppointment.Models.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,11 @@ namespace CalendarAppointment.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            List<Package> packages = db.Packages.ToList();
+            return View(packages);
         }
 
         public ActionResult About()

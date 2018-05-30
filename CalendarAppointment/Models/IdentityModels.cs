@@ -29,5 +29,10 @@ namespace CalendarAppointment.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Models.Data.Booking> Bookings { get; set; }
+        public DbSet<Models.Data.Location> Locations { get; set; }
+        public DbSet<Models.Data.Package> Packages { get; set; }
+        public DbSet<Models.Data.Person> Persons { get; set; }
     }
 }
